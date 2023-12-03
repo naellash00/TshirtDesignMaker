@@ -12,7 +12,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
    $password = htmlentities(mysqli_real_escape_string($conn,$_POST['password']));
 
 }
-
+//
 if(empty($username)){ // print error message if the user didnt enter username
     $username_error = 'please enter a username <br>';
     $err = 1; // adding error variable to check how many errors is there before sendig the data to the databse

@@ -27,7 +27,7 @@
                    } 
               ?> 
               <input type="password" name="password" id="password" placeholder="password"><br>
-              <input type="submit" name="submit" id="submit" value="Log in" href="cart.php"><br>
+              <input type="submit" name="submit" id="submit" value="Log in" ><br>
          </form>
 
          <h5><i>dosent have an account?</i></h5> <br>

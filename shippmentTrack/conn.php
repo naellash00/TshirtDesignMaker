@@ -1,7 +1,7 @@
 <?php
 //connection to the database
 
-$conn = mysqli_connect('localhost','root','root','orderUsersNumber');
+$conn = mysqli_connect('localhost','root','root','orderNumbers');
 
 if(!$conn){
 

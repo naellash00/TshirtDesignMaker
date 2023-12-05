@@ -61,7 +61,7 @@
                   <h4 class="text-center text-info m-0">Products in your cart!</h4> 
                 </td>
               </tr>
-              <tr>//row
+              <tr>
                 <th>ID</th>
                 <th>Image</th>
                 <th>Product</th>

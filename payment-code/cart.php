@@ -57,7 +57,8 @@
             <thead>
               <tr>
                 <td colspan="7">
-                  <h4 class="text-center text-info m-0">Products in your cart!</h4>
+                //Section titles on the page
+                  <h4 class="text-center text-info m-0">Products in your cart!</h4> 
                 </td>
               </tr>
               <tr>

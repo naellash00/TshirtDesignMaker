@@ -46,12 +46,12 @@
   echo $_SESSION['showAlert'];
 } else {
   echo 'none';
-} unset($_SESSION['showAlert']); ?>" class="alert alert-success alert-dismissible mt-3">
+} unset($_SESSION['showAlert']); ?>" class="alert alert-success alert-dismissible mt-3">//
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <strong><?php if (isset($_SESSION['message'])) {
   echo $_SESSION['message'];
 } unset($_SESSION['showAlert']); ?></strong>
-        </div>
+       </div>
         <div class="table-responsive mt-2">
           <table class="table table-bordered table-striped text-center">
             <thead>
@@ -133,6 +133,7 @@
       var pprice = $el.find(".pprice").val();
       var qty = $el.find(".itemQty").val();
       location.reload(true);
+      //ajax It makes web applications more responsive to user interaction
       $.ajax({
         url: 'action.php',
         method: 'post',
@@ -150,14 +151,16 @@
 
     // Load total no.of items added in the cart and display in the navbar
     load_cart_item_number();
-
+     
     function load_cart_item_number() {
+      //ajax It makes web applications more responsive to user interaction
       $.ajax({
-        url: 'action.php',
-        method: 'get',
+        url: 'action.php',//The address of the web page where the user clicked on a link that takes them to your page
+        method: 'get',//The GET method passes the request data in the URL 
         data: {
           cartItem: "cart_item"
         },
+        //
         success: function(response) {
           $("#cart-item").html(response);
         }

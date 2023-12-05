@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	session_start();//Creates the function new session or fills the current session based on the visual identifier passed by GET and POST requests
 	require 'config.php';
 
 	// Add products into the cart table
@@ -92,7 +92,7 @@
 	  $pmode = $_POST['pmode'];
 
 	  $data = '';
-
+     //Order completion data
 	  $stmt = $conn->prepare('INSERT INTO orders (name,email,phone,address,pmode,products,amount_paid)VALUES(?,?,?,?,?,?,?)');
 	  $stmt->bind_param('sssssss',$name,$email,$phone,$address,$pmode,$products,$grand_total);
 	  $stmt->execute();

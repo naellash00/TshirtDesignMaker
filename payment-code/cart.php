@@ -56,12 +56,12 @@
           <table class="table table-bordered table-striped text-center">
             <thead>
               <tr>
-                <td colspan="7">
-                //Section titles on the page
+                <td colspan="7"> //colspan for Determine how many columns are in the row
+                //h4 Section titles on the page
                   <h4 class="text-center text-info m-0">Products in your cart!</h4> 
                 </td>
               </tr>
-              <tr>
+              <tr>//row
                 <th>ID</th>
                 <th>Image</th>
                 <th>Product</th>

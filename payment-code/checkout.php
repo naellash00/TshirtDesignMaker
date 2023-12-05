@@ -83,7 +83,6 @@
               <option value="" selected disabled>-Select Payment Mode-</option>
               <option value="cod">Cash On Delivery</option>
               <option value="netbanking">Net Banking</option>
-              <option value="cards">Debit/Credit Card</option>
             </select>
           </div>
           <div class="form-group">

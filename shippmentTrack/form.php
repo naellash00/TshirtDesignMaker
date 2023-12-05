@@ -6,7 +6,7 @@ if (isset ($_POST ['submit'])){
     $orderNumber = $_POST['orderNumber'];
 
     //check if the order number is in the DB
-    $check_orderNumber = "SELECT * FROM users WHERE orderNumber = $orderNumber";
+    $check_orderNumber = "SELECT * FROM orderUsersNumber WHERE orderNumber = $orderNumber";
     $result = mysqli_query($conn, $check_orderNumber);
     $num_rows = mysqli_num_rows($result);
 
@@ -21,5 +21,6 @@ if (isset ($_POST ['submit'])){
         $error = 'Error: Enter your order number!';
         
     }
+
 }
 ?>

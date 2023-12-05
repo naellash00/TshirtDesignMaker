@@ -100,8 +100,9 @@
       var pqty = $form.find(".pqty").val();
 
       $.ajax({
-        url: 'action.php',
-        method: 'post',
+        //ajax It makes web applications more responsive to user interaction
+        url: 'action.php',//The address of the web page where the user clicked on a link that takes them to your page
+        method: 'post',//To publish data
         data: {
           pid: pid,
           pname: pname,
@@ -122,9 +123,10 @@
     load_cart_item_number();
 
     function load_cart_item_number() {
+      //ajax It makes web applications more responsive to user interaction
       $.ajax({
-        url: 'action.php',
-        method: 'get',
+        url: 'action.php',//The address of the web page where the user clicked on a link that takes them to your page
+        method: 'get',//The GET method passes the request data in the URL
         data: {
           cartItem: "cart_item"
         },

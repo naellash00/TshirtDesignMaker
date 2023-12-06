@@ -77,7 +77,7 @@
           <div class="form-group">
             <textarea name="address" class="form-control" rows="3" cols="10" placeholder="Enter Delivery Address Here..."></textarea>
           </div>
-          <h6 class="text-center lead">Select Payment Mode</h6>
+          <h6 class="text-center lead">Payment Information</h6>
           <div class="form-group">
             <input type="hidden" name="pmode" class="form-control" value="cards" required>
           </div>

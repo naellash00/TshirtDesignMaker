@@ -56,7 +56,6 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6 px-4 pb-4" id="order">
-      
         <h4 class="text-center text-info p-2">Complete your order!</h4>
         <div class="jumbotron p-3 mb-2 text-center">
           <h6 class="lead"><b>Product(s) : </b><?= $allItems; ?></h6>
@@ -80,11 +79,14 @@
           </div>
           <h6 class="text-center lead">Select Payment Mode</h6>
           <div class="form-group">
-            <select name="pmode" class="form-control">
-              <option value="" selected disabled>-Select Payment Mode-</option>
-              <option value="cod">Cash On Delivery</option>
-              <option value="netbanking">Net Banking</option>
-            </select>
+            <input type="hidden" name="pmode" class="form-control" value="cards" required>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="cardnumber" class="form-control" placeholder="Enter Card Number" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="cardnumber" class="form-control" placeholder="Enter CVV" required>
           </div>
           <div class="form-group">
             <input type="submit" name="submit" value="Place Order" class="btn btn-danger btn-block">
@@ -117,10 +119,9 @@
     load_cart_item_number();
 
     function load_cart_item_number() {
-      //ajax It makes web applications more responsive to user interaction
       $.ajax({
-        url: 'action.php',//The address of the web page where the user clicked on a link that takes them to your page
-        method: 'get',//The GET method passes the request data in the URL 
+        url: 'action.php',
+        method: 'get',
         data: {
           cartItem: "cart_item"
         },

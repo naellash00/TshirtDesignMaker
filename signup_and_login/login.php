@@ -18,7 +18,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION["userid"] = $row['id'];
         header("Location:../payment-code/index.php");
     } else {
-
+        echo '<script>alert("Username or Password is incorrect!");</script>'; 
         $error_login = 'Username or Password is incorrect!';
     }
 }

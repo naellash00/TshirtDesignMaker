@@ -13,27 +13,46 @@
 
 <body>
   <!-- Navbar start -->
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- first tag to Navbar -->
+  <!--navbar-expand makes you responsive -->
+  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
+  <!-- Brand -->
     <a class="navbar-brand" href="index.php"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; Store</a>
+    <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php"><i class="fas fa-shopping-cart mr-2"></i>Products</a>
+          <a class="nav-link active" href="index.php"><i class="fas fa-shopping-cart mr-2"></i>Products</a><!-- for Products page -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
+          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a><!-- for Checkout page -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
+          <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a><!-- for cart page -->
         </li>
       </ul>
     </div>
   </nav>
   <!-- Navbar end -->
-
+  <div class="jumbotron bg-light">
+  <div class="container m-5" >
+   <div class="col-lg-17">
+   <div class="jumbotron ">
+  <h1 class="display-7"> T-shirt Design Maker </h1>
+  <p class="lead"> Get the best t-shirt designs tailored to your style , Stand out from the crowd.</p>
+  <hr class="my-5">
+  <p>Start designing T-shirts online, as there are a set of easy-to-use tools and high-quality graphics.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-danger" href="#" role="button"> start Design new !</a>
+  </p>
+</div>
+   </div>
+</div>
+  </div>
+  </div>
   <!-- Displaying Products Start -->
   <div class="container">
     <div id="message"></div>
@@ -100,8 +119,9 @@
       var pqty = $form.find(".pqty").val();
 
       $.ajax({
-        url: 'action.php',
-        method: 'post',
+        //ajax It makes web applications more responsive to user interaction
+        url: 'action.php',//The address of the web page where the user clicked on a link that takes them to your page
+        method: 'post',//To publish data
         data: {
           pid: pid,
           pname: pname,
@@ -120,11 +140,11 @@
 
     // Load total no.of items added in the cart and display in the navbar
     load_cart_item_number();
-
     function load_cart_item_number() {
+      //ajax It makes web applications more responsive to user interaction
       $.ajax({
-        url: 'action.php',
-        method: 'get',
+        url: 'action.php',//The address of the web page where the user clicked on a link that takes them to your page
+        method: 'get',//The GET method passes the request data in the URL
         data: {
           cartItem: "cart_item"
         },

@@ -3,6 +3,8 @@
 	require 'config.php';
 
 	// Add products into the cart table
+	//POST is used to upload data to services
+	//isset to check the existence of the variable
 	if (isset($_POST['pid'])) {
 	  $pid = $_POST['pid'];
 	  $pname = $_POST['pname'];
@@ -11,7 +13,7 @@
 	  $pcode = $_POST['pcode'];
 	  $pqty = $_POST['pqty'];
 	  $total_price = $pprice * $pqty;
-
+      
 	  $stmt = $conn->prepare('SELECT product_code FROM cart WHERE product_code=?');
 	  $stmt->bind_param('s',$pcode);
 	  $stmt->execute();

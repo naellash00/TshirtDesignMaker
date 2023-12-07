@@ -121,7 +121,6 @@
 
     // Load total no.of items added in the cart and display in the navbar
     load_cart_item_number();
-
     function load_cart_item_number() {
       //ajax It makes web applications more responsive to user interaction
       $.ajax({

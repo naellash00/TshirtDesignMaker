@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
     <!-- Brand -->
     <a class="navbar-brand" href="index.php"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; Store</a>
     <!-- Toggler/collapsibe Button -->

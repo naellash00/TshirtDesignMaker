@@ -46,7 +46,7 @@
   <hr class="my-5">
   <p>Start designing T-shirts online, as there are a set of easy-to-use tools and high-quality graphics.</p>
   <p class="lead">
-    <a class="btn btn-primary btn-danger" href="#" role="button"> start new !</a>
+    <a class="btn btn-primary btn-danger" href="#" role="button"> start Design new !</a>
   </p>
 </div>
    </div>

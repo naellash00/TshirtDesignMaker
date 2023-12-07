@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="Shiraz">
@@ -10,7 +9,6 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
 </head>
-
 <body>
   <!-- Navbar start -->
   <!-- first tag to Navbar -->
@@ -99,13 +97,11 @@
     </div>
   </div>
   <!-- Displaying Products End -->
-
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
 
   <script type="text/javascript">
   $(document).ready(function() {
-
     // Send product details in the server
     $(".addItemBtn").click(function(e) {
       e.preventDefault();
@@ -137,7 +133,6 @@
         }
       });
     });
-
     // Load total no.of items added in the cart and display in the navbar
     load_cart_item_number();
     function load_cart_item_number() {

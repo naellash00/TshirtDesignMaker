@@ -17,20 +17,22 @@
   <!-- first tag to Navbar -->
   <!--navbar-expand makes you responsive -->
   <nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
+  <!-- Brand -->
     <a class="navbar-brand" href="index.php"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; Store</a>
+    <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php"><i class="fas fa-shopping-cart mr-2"></i>Products</a>
+          <a class="nav-link active" href="index.php"><i class="fas fa-shopping-cart mr-2"></i>Products</a><!-- for Products page -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
+          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a><!-- for Checkout page -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
+          <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a><!-- for cart page -->
         </li>
       </ul>
     </div>

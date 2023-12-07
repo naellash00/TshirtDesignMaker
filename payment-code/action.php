@@ -13,7 +13,7 @@
 	  $pcode = $_POST['pcode'];
 	  $pqty = $_POST['pqty'];
 	  $total_price = $pprice * $pqty;
-      
+      //
 	  $stmt = $conn->prepare('SELECT product_code FROM cart WHERE product_code=?');
 	  $stmt->bind_param('s',$pcode);
 	  $stmt->execute();

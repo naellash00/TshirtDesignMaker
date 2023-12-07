@@ -56,6 +56,7 @@
     <div id="message"></div>
     <div class="row mt-2 pb-3">
       <?php
+      // connect this page with the DB
   			include 'config.php';
   			$stmt = $conn->prepare('SELECT * FROM product');
   			$stmt->execute();
@@ -99,7 +100,6 @@
   <!-- Displaying Products End -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
-
   <script type="text/javascript">
   $(document).ready(function() {
     // Send product details in the server
@@ -111,7 +111,6 @@
       var pprice = $form.find(".pprice").val();
       var pimage = $form.find(".pimage").val();
       var pcode = $form.find(".pcode").val();
-
       var pqty = $form.find(".pqty").val();
 
       $.ajax({

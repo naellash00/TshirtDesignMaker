@@ -70,10 +70,6 @@
         <input type="color" id="text-color" value="#ffffff">
     </div>
 </div>
-
-
-       
-       
 <div id="arrow-buttons">
     <button id="up-arrow" onclick="moveLogo('up')">↑</button>
     <button id="down-arrow" onclick="moveLogo('down')">↓</button>
@@ -84,7 +80,7 @@
             <button class="button-design" onclick="customizeTshirt()">Create design</button>
             <button class="button-design" onclick="saveDesign()">Save Design</button>
             <button class="button-design" onclick="addToCart()">Add To Cart</button>
-            <button class="button-design" onclick="viewSavedDesigns()">Previous Designs</button>
+            <button class="button-design" onclick="previousDesign()">Previous Designs</button>
         </div>
 
         <div class="drawing-area">

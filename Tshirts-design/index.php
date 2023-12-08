@@ -70,10 +70,6 @@
         <input type="color" id="text-color" value="#ffffff">
     </div>
 </div>
-
-
-       
-       
 <div id="arrow-buttons">
     <button id="up-arrow" onclick="moveLogo('up')">↑</button>
     <button id="down-arrow" onclick="moveLogo('down')">↓</button>

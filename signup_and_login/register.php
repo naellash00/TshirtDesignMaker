@@ -46,7 +46,7 @@
     </form> 
 
      <h5><i> already have an account? </i></h5> <br>
-     <a id="login" href="index.html"> Log in </a> <!--***-->
+     <a id="login" href="index.php"> Log in </a>
 
 </div>
 

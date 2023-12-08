@@ -44,9 +44,6 @@
    <div class="col-lg-17">
    <div class="jumbotron ">
   <h1 class="display-7"> Welcome To T-shirt Design Maker </h1>
-  <a class="navbar-brand" href="#">
-      <img src="" alt="" width="500" height="250">
-    </a>
   <p class="lead"> Get the best t-shirt designs tailored to your style , Stand out from the crowd.</p>
   <hr class="my-5">
   <p>Start designing T-shirts online, as there are a set of easy-to-use tools and high-quality graphics.</p>

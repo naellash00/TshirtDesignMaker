@@ -18,7 +18,7 @@ if (isset ($_POST ['submit'])){
     //empty number error
     if(empty($_POST['orderNumber'])){
          
-        $error = 'Error: Enter your order number!';
+        $error = 'Sorry!: Enter your order number';
         
     }
 

@@ -1,0 +1,140 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+#app {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tshirt-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+#tshirt-img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+#text-overlay {
+  position: absolute;
+  top: 30%;
+  left: 45%; /* تم تغيير قيمة left هنا */
+  transform: translateX(50%);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#logo-overlay {
+  position: absolute;
+  top: 37%;
+  left: 23%; /* تم تغيير قيمة left هنا */
+  transform: translateX(50%);
+  width: 90px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#canvas-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+#text-controls {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.button-design {
+  margin: 0 5px;
+}
+
+#text-input,
+#color-input,
+#color-selector,
+#size-input,
+#logo-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+}
+
+#buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.drawing-area {
+  position: relative;
+}
+
+.canvas-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+button {
+  width: 150px;
+  margin: 0 10px;
+  background-color: #ff69b4; /* لون وردي */
+  border: none;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white; /* لون النص */
+  cursor: pointer; 
+  border-radius: 5px; /* زوايا مستديرة */
+  transition: background-color 0.3s; /* تأثير تدريجي عند التحول */
+}
+
+button:hover {
+  background-color: #d45087; /* لون وردي أغمق عند التحويل */
+}
+#arrow-buttons {
+  position: absolute;
+  top: 40%;
+  left: 399px; /* تعديل المسافة من اليمين */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column; /* تحديد توجيه العناصر إلى عمود */
+}
+
+#up-arrow,
+#down-arrow,
+#left-arrow,
+#right-arrow {
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px; /* المسافة بين الأزرار العمودية */
+    line-height: 30px; /* جعل ارتفاع السهم يتساوى مع ارتفاع الزر */
+    text-align: center; /* توسيط النص داخل الزر */
+}

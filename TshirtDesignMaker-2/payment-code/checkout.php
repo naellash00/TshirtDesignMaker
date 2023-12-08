@@ -47,7 +47,7 @@
           <a class="nav-link" href="../payment-code/checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../shippmentTrack"><i class="bi bi-truck"></i>Tracking</a><!-- for track page -->
+          <a class="nav-link" href="../shippmentTrack"><i class="bi bi-truck"></i> Tracking</a><!-- for track page -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>

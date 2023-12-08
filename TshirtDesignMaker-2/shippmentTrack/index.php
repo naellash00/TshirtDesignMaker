@@ -6,7 +6,6 @@ include ('form.php');
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <meta name="author" content="Shiraz">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Tracking</title>
@@ -16,9 +15,10 @@ include ('form.php');
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
-    <!-- Brand -->
-    <a class="navbar-brand" href="index.php"><i class=""></i>&nbsp;&nbsp; T-shirt Design Maker</a>
+      <!--navbar-expand makes you responsive -->
+  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
+      <!-- Brand -->
+    <a class="navbar-brand" href="../payment-code/index.php"><i class=""></i>&nbsp;&nbsp; T-shirt Design Maker</a>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -27,17 +27,17 @@ include ('form.php');
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php"><i class="fas fa-shopping-cart mr-2"></i>Products</a>
+          <a class="nav-link " href="../index.php"><i class="fas fa-shopping-cart mr-2"></i>Design</a>
         </li>
        
         <li class="nav-item">
-          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
+          <a class="nav-link" href="../payment-code/checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php"><i class="bi bi-truck"></i> tracking</a><!-- for track page -->
+          <a class="nav-link" href="../shippmentTrack"><i class="bi bi-truck"></i>Tracking</a><!-- for track page -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
+          <a class="nav-link" href="../payment-code/cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
         </li>
       </ul>
     </div>

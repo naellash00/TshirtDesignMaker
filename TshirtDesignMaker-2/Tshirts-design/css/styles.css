@@ -104,7 +104,7 @@ body {
 button {
   width: 150px;
   margin: 0 10px;
-  background-color: #ff69b4; /* لون وردي */
+  background-color:#bd2130; /* لون وردي */
   border: none;
   padding: 10px 15px;
   font-size: 12px;
@@ -116,7 +116,7 @@ button {
 }
 
 button:hover {
-  background-color: #d45087; /* لون وردي أغمق عند التحويل */
+  background-color:#ea5967; /* لون وردي أغمق عند التحويل */
 }
 #arrow-buttons {
   position: absolute;

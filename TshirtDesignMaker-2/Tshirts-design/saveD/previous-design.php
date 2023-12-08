@@ -10,18 +10,8 @@
 <body>
 
 <?php
-// Update the database connection credentials accordingly
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "sdesigns";
-//test
-// Establish database connection
-$conn = new mysqli("localhost","root","","tshirtdesignmaker");
-if(!$conn){
-    die("Connection failed: " . mysqli_connect_error());
-}
 
+include('conn.php');
 // Retrieve previous designs from the database
 $result = $conn->query("SELECT * FROM design");
 

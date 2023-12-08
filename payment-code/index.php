@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="Shiraz">
@@ -9,15 +8,15 @@
   <title>Shopping Cart System</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
-
 <body>
   <!-- Navbar start -->
   <!-- first tag to Navbar -->
   <!--navbar-expand makes you responsive -->
   <nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
   <!-- Brand -->
-    <a class="navbar-brand" href="index.php"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; Store</a>
+    <a class="navbar-brand" href="index.php"><i class=""></i>&nbsp;&nbsp; T-shirt Design Maker </a>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -25,10 +24,13 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php"><i class="fas fa-shopping-cart mr-2"></i>Products</a><!-- for Products page -->
+          <a class="nav-link " href="index.php"><i class="fas fa-shopping-cart mr-2"></i>Products</a><!-- for Products page -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a><!-- for Checkout page -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php"><i class="bi bi-truck"></i> tracking</a><!-- for track page -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a><!-- for cart page -->
@@ -41,7 +43,7 @@
   <div class="container m-5" >
    <div class="col-lg-17">
    <div class="jumbotron ">
-  <h1 class="display-7"> T-shirt Design Maker </h1>
+  <h1 class="display-7"> Welcome To T-shirt Design Maker </h1>
   <p class="lead"> Get the best t-shirt designs tailored to your style , Stand out from the crowd.</p>
   <hr class="my-5">
   <p>Start designing T-shirts online, as there are a set of easy-to-use tools and high-quality graphics.</p>
@@ -58,6 +60,7 @@
     <div id="message"></div>
     <div class="row mt-2 pb-3">
       <?php
+      // connect this page with the DB
   			include 'config.php';
   			$stmt = $conn->prepare('SELECT * FROM product');
   			$stmt->execute();
@@ -99,13 +102,10 @@
     </div>
   </div>
   <!-- Displaying Products End -->
-
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
-
   <script type="text/javascript">
   $(document).ready(function() {
-
     // Send product details in the server
     $(".addItemBtn").click(function(e) {
       e.preventDefault();
@@ -115,7 +115,6 @@
       var pprice = $form.find(".pprice").val();
       var pimage = $form.find(".pimage").val();
       var pcode = $form.find(".pcode").val();
-
       var pqty = $form.find(".pqty").val();
 
       $.ajax({
@@ -137,7 +136,6 @@
         }
       });
     });
-
     // Load total no.of items added in the cart and display in the navbar
     load_cart_item_number();
     function load_cart_item_number() {

@@ -1,7 +1,7 @@
 <?php
 //connection to the database
 
-$conn = mysqli_connect('localhost','root','','orderNumbers');
+$conn = mysqli_connect('localhost','root','','tshirtdesignmaker');
 
 if(!$conn){
 

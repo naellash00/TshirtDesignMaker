@@ -1,10 +1,8 @@
 <?php
   session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="Sahil Kumar">
@@ -13,12 +11,13 @@
   <title>Cart</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 
 <body>
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
     <!-- Brand -->
-    <a class="navbar-brand" href="index.php"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; Store</a>
+    <a class="navbar-brand" href="index.php"><i class=""></i>&nbsp;&nbsp; T-shirt Design Maker </a>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -31,6 +30,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php"><i class="bi bi-truck"></i> tracking</a><!-- for track page -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>

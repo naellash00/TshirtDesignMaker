@@ -165,3 +165,8 @@ function getFileExtension(filename) {
   }
   return '';
 }
+function previousDesign() {
+  console.log('previousDesign');
+  var pageURL = 'saveD/previous-design.php';
+  window.location.href = pageURL;
+}

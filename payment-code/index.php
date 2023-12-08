@@ -14,7 +14,7 @@
   <!-- Navbar start -->
   <!-- first tag to Navbar -->
   <!--navbar-expand makes you responsive -->
-  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #A1CCD1;">
+  <nav class="navbar navbar-expand-md navbar-light" style="background-color: rgb(232, 151, 151);">
   <!-- Brand -->
     <a class="navbar-brand" href="index.php"><i class=""></i>&nbsp;&nbsp; <strong> T-shirt Design Maker </strong> </a>
     <!-- Toggler/collapsibe Button -->

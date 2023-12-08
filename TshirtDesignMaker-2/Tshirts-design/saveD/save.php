@@ -1,18 +1,7 @@
 <?php
 // save.php
 
-// Update the database connection credentials accordingly
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "sdesigns";
-
-// Establish database connection
-$conn = mysqli_connect('localhost','root','root','sdesigns');
-if(!$conn){
-    die("Connection failed: " . mysqli_connect_error());
-}
-
+include('conn.php');
 // Extract data from the received POST data
 $userID = $_POST['userID'] ?? '';
 $tshirtImageURL = $_POST['tshirtImageURL'] ?? '';

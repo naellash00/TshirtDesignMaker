@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="https://mdbootstrap.com/docs/standard/extended/login/">
+</head>
+<body>
+    <section class="h-100 gradient-form" style="background-color: #F4F2DE;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+              <div class="card rounded-3 text-black">
+                <div class="row g-0">
+                  <div class="col-lg-6">
+                    <div class="card-body p-md-5 mx-md-4">
+      
+                      <div class="text-center">
+                        <img src="logo.jpg"
+                          style="width: 185px;" alt="logo">
+                        <h4 class="mt-1 mb-5 pb-1">Tshirt Design Maker</h4>
+                      </div>
+      
+                      <form action="login.php" method="POST">
+                        <?php 
+                             if(isset($username_error)){
+                              echo $username_error;
+                            } 
+                        ?> 
+              <input type="text" name="username" id="username" placeholder="username"><br>
+
+
+                    <?php 
+                        if(isset($password_error)){
+                         echo $password_error;
+                        } 
+                    ?> 
+              <input type="password" name="password" id="password" placeholder="password"><br>
+              <input type="submit" name="submit" id="submit" value="Log in" ><br>
+                        
+      
+                      </form>
+      
+                    </div>
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                      <p class="small mb-0"> welcome to out t-shirt design maker,
+                        our website will give a chance to design on your own </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+   
+</body>
+</html>

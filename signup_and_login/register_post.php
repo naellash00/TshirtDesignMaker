@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){ // if user click on register submit
              mysqli_query($conn, $sql);
              // after successfuly uploading the data 
              // this header is to take the user into login page in index.php code
-             header('location:index.php'); 
+             header('location:index.html'); // ***
         }else{ // if i didnt happen then let the data in the same page
             include('register.php');
         }

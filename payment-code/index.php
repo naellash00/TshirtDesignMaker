@@ -14,9 +14,9 @@
   <!-- Navbar start -->
   <!-- first tag to Navbar -->
   <!--navbar-expand makes you responsive -->
-  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
+  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #A1CCD1;">
   <!-- Brand -->
-    <a class="navbar-brand" href="index.php"><i class=""></i>&nbsp;&nbsp; T-shirt Design Maker </a>
+    <a class="navbar-brand" href="index.php"><i class=""></i>&nbsp;&nbsp; <strong> T-shirt Design Maker </strong> </a>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
   <h1 class="display-7"> Welcome To T-shirt Design Maker </h1>
   <p class="lead"> Get the best t-shirt designs tailored to your style , Stand out from the crowd.</p>
   <hr class="my-5">
-  <p>Start designing T-shirts online, as there are a set of easy-to-use tools and high-quality graphics.</p>
+  <p>Start designing T-shirts online, as there are a set of easy-to-use tools and graphic options.</p>
   <p class="lead">
     <a class="btn btn-primary btn-danger" href="#" role="button"> start Design new !</a>
   </p>

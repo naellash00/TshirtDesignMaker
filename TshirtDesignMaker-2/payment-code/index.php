@@ -24,13 +24,13 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link " href="index.php"><i class="bi bi-palette2"></i> Design</a><!-- for Products page -->
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a><!-- for Checkout page -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../shippmentTrack/index.php"><i class="bi bi-truck"></i> Tracking</a><!-- for track page -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="index.php"><i class="bi bi-person-fill"></i>  Login </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a><!-- for cart page -->

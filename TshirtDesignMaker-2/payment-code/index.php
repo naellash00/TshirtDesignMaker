@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link " href="index.php"><i class="fas fa-shopping-cart mr-2"></i>Design</a><!-- for Products page -->
+          <a class="nav-link " href="index.php"><i class="bi bi-palette2"></i> Design</a><!-- for Products page -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a><!-- for Checkout page -->

@@ -92,6 +92,9 @@
             <input type="text" name="cardnumber" class="form-control" placeholder="Enter CVV" required>
           </div>
           <div class="form-group">
+            <input type="text" name="cardnumber" class="form-control" placeholder="MM/YY" required>
+          </div>
+          <div class="form-group">
             <input type="submit" name="submit" value="Place Order" class="btn btn-danger btn-block">
           </div>
         </form>

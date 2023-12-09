@@ -95,22 +95,9 @@ body {
   margin-bottom: 10px;
 }
 
-#buttons-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-wrap: wrap;
-  /* السماح بالانزلاق إذا كانت هناك مشكلة في التصميم */
-  justify-content: flex-end;
-  /* وضع الأزرار على يمين الصفحة */
-  margin: 10px;
-}
-
-
 .button-design {
   width: 150px;
-  margin: 0 10px;
+  margin: 7% 0; /* تحديد المسافة العمودية بين الأزرار */
   background-color: #bd2130;
   border: none;
   padding: 10px 15px;
@@ -120,6 +107,17 @@ body {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
+}
+
+#buttons-container {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* يضع العناصر على يمين الصفحة */
+  margin: 10px;
 }
 
 .button-design:hover {
@@ -154,12 +152,12 @@ body {
 .button-design {
   width: 150px;
   margin: 0 10px;
-  background-color: #fbc0c6;
-  border: none;
+  background-color: #dc3545;
+  border: #dc3545;
   padding: 10px 15px;
   font-size: 12px;
   font-weight: bold;
-  color: rgb(94, 91, 91);
+  color: rgb(255, 255, 255);
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;

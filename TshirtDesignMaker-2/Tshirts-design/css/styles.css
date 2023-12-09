@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flow-root;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -19,21 +19,26 @@ body {
 }
 
 #tshirt-container {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
+  align-items: center;
+  height: 75vh;
+  margin-bottom: 0 10px;
 }
 
 #tshirt-img {
-  max-width: 100%;
+  max-width: 110%;
   height: auto;
+  padding: 0;
 }
 
 
 #text-overlay {
   position: absolute;
   top: 30%;
-  left: 45%; /* تم تغيير قيمة left هنا */
+  left: 45%;
+  /* تم تغيير قيمة left هنا */
   transform: translateX(50%);
   font-size: 18px;
   font-weight: bold;
@@ -41,8 +46,9 @@ body {
 
 #logo-overlay {
   position: absolute;
-  top: 37%;
-  left: 23%; /* تم تغيير قيمة left هنا */
+  top: 29%;
+  right: 49%;
+  /* تم تغيير قيمة left هنا */
   transform: translateX(50%);
   width: 90px;
   height: 60px;
@@ -56,8 +62,10 @@ body {
   right: 0;
   z-index: 2;
 }
+
 #text-controls {
   display: flex;
+  flex-direction: row;
   align-items: center;
   margin: 10px;
 }
@@ -72,10 +80,52 @@ body {
   margin: 0 5px;
 }
 
-#text-input,
-#color-input,
-#color-selector,
 #size-input,
+#logo-input,
+#logo-size-input,
+#text-controls {
+  margin-bottom: 10px;
+}
+
+#text-input,
+#text-color-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#buttons-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  /* السماح بالانزلاق إذا كانت هناك مشكلة في التصميم */
+  justify-content: flex-end;
+  /* وضع الأزرار على يمين الصفحة */
+  margin: 10px;
+}
+
+
+.button-design {
+  width: 150px;
+  margin: 0 10px;
+  background-color: #bd2130;
+  border: none;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.button-design:hover {
+  background-color: #ea5967;
+}
+
 #logo-input {
   display: flex;
   flex-direction: row;
@@ -96,45 +146,73 @@ body {
 
 .canvas-container {
   position: absolute;
-  top: 0;
+  top: 10;
   right: 0;
 }
 
 
-button {
+.button-design {
   width: 150px;
   margin: 0 10px;
-  background-color:#bd2130; /* لون وردي */
+  background-color: #fbc0c6;
   border: none;
   padding: 10px 15px;
   font-size: 12px;
   font-weight: bold;
-  color: white; /* لون النص */
-  cursor: pointer; 
-  border-radius: 5px; /* زوايا مستديرة */
-  transition: background-color 0.3s; /* تأثير تدريجي عند التحول */
+  color: rgb(94, 91, 91);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button {
+  width: 150px;
+  /* Set the width for generic buttons */
+  margin: 0 10px;
+  /* Add space on the left and right of buttons */
+  background-color: #fbc0c6;
+  /* Set background color for buttons */
+  border: none;
+  /* Remove border from buttons */
+  padding: 10px 15px;
+  /* Set padding for buttons */
+  font-size: 50px;
+  /* Set font size for button text */
+  font-weight: bold;
+  /* Set font weight for button text */
+  color: rgb(58, 57, 57);
+  /* Set text color for button text */
+  cursor: pointer;
+  /* Set cursor style to pointer for interactive feedback */
+  border-radius: 5px;
+  /* Set border-radius for rounded corners */
+  transition: background-color 0.3s;
+  /* Add a smooth transition effect on background color change */
 }
 
 button:hover {
-  background-color:#ea5967; /* لون وردي أغمق عند التحويل */
+  background-color: #ea5967;
+  /* Change background color on button hover */
 }
+
 #arrow-buttons {
   position: absolute;
-  top: 40%;
-  left: 399px; /* تعديل المسافة من اليمين */
+  top: 33%;
+  left: 100px;
+  /* Adjust the left distance as needed */
   transform: translateY(-50%);
   display: flex;
-  flex-direction: column; /* تحديد توجيه العناصر إلى عمود */
+  flex-direction: column;
 }
 
 #up-arrow,
 #down-arrow,
 #left-arrow,
 #right-arrow {
-    font-size: 15px;
-    width: 40px;
-    height: 40px;
-    margin-bottom: 5px; /* المسافة بين الأزرار العمودية */
-    line-height: 30px; /* جعل ارتفاع السهم يتساوى مع ارتفاع الزر */
-    text-align: center; /* توسيط النص داخل الزر */
+  font-size: 15px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+  line-height: 30px;
+  text-align: center;
 }

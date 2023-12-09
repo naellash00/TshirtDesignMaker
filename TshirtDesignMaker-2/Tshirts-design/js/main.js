@@ -55,7 +55,7 @@ function loadLogo() {
     const reader = new FileReader();
     reader.onload = function (e) {
       logoOverlay.style.backgroundImage = `url('${e.target.result}')`;
-      resizeLogo(); 
+      resizeLogo();
     };
     reader.readAsDataURL(file);
   }
@@ -76,73 +76,36 @@ function resizeLogo() {
 
   // Prevent the default drag behavior to enable custom dragging
   logoOverlay.addEventListener('dragstart', (e) => {
-      e.preventDefault();
+    e.preventDefault();
   });
 
   // Update the position of the logo overlay after dragging
   logoOverlay.addEventListener('dragend', (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
+    const x = e.clientX;
+    const y = e.clientY;
 
-      // Set the new position of the logo overlay
-      logoOverlay.style.left = x + 'px';
-      logoOverlay.style.top = y + 'px';
+    // Set the new position of the logo overlay
+    logoOverlay.style.left = x + 'px';
+    logoOverlay.style.top = y + 'px';
   });
 }
 
-function moveLogo(direction) {
-    const logoOverlay = document.getElementById('logo-overlay');
-    const logoSize = parseInt(document.getElementById('logo-size').value);
-    const stepSize = 5; // حجم الخطوة لتحريك الصورة
-
-    const tshirtContainer = document.getElementById('tshirt-container');
-    const tshirtWidth = tshirtContainer.offsetWidth;
-    const tshirtHeight = tshirtContainer.offsetHeight;
-
-    const currentLeft = parseInt(logoOverlay.style.left) || 0;
-    const currentTop = parseInt(logoOverlay.style.top) || 0;
-
-    switch (direction) {
-        case 'up':
-            if (currentTop - stepSize >= 0) {
-                logoOverlay.style.top = currentTop - stepSize + 'px';
-            }
-            break;
-        case 'down':
-            if (currentTop + stepSize + logoSize <= tshirtHeight) {
-                logoOverlay.style.top = currentTop + stepSize + 'px';
-            }
-            break;
-        case 'left':
-            if (currentLeft - stepSize >= 0) {
-                logoOverlay.style.left = currentLeft - stepSize + 'px';
-            }
-            break;
-        case 'right':
-            if (currentLeft + stepSize + logoSize <= tshirtWidth) {
-                logoOverlay.style.left = currentLeft + stepSize + 'px';
-            }
-            break;
-    }
-}
 
 
 // Function to save the design 
+// Function to save the design 
 function saveDesign() {
-  const logoInput = document.getElementById('logo').files[0];
+  const logoInput = document.getElementById ('logo').files[0];
   const logoOverlay = document.getElementById('logo-overlay');
   const tshirtImg = document.getElementById('tshirt-img');
   const formData = new FormData();
 
-  // Append the necessary data to the FormData object
-  formData.append('logo_url', logoOverlay.style.backgroundImage.slice(4, -1).replace(/['"]/g, ""));
-  formData.append('tshirt_image_url', tshirtImg.src);
-  formData.append('logo_size', document.getElementById('logo-size').value);
-  formData.append('text_content', document.getElementById('text').value);
-  formData.append('text_color', document.getElementById('text-color').value);
-  
+  formData.append('logo', logoInput); // Append the logo file directly
+  formData.append('tshirtImageURL', tshirtImg.src);
+  formData.append('logoSize', document.getElementById('logo-size').value);
+  formData.append('textContent', document.getElementById('text').value);
+  formData.append('textColor', document.getElementById('text-color').value);
 
-  // Send the data to the server (save.php) for processing
   fetch('save.php', {
     method: 'POST',
     body: formData,
@@ -158,6 +121,7 @@ function saveDesign() {
   });
 }
 
+
 // Function to get file extension from file name
 function getFileExtension(filename) {
   const dotIndex = filename.lastIndexOf('.');
@@ -170,4 +134,28 @@ function previousDesign() {
   console.log('previousDesign');
   var pageURL = 'saveD/previous-design.php';
   window.location.href = pageURL;
+}
+// في JavaScript
+function addToCart(userId) {
+  const tshirtImage = document.getElementById('tshirt-image').value;
+  const logoImage = document.getElementById('logo-image').value;
+  const logoSize = document.getElementById('logo-size').value;
+  const text = document.getElementById('text').value;
+  const textColor = document.getElementById('text-color').value;
+  const tshirtSize = document.getElementById('tshirt-size').value;
+
+  const cartItems = document.getElementById('cart-items');
+  const listItem = document.createElement('li');
+  listItem.innerHTML = `
+      User ID: ${userId}<br>
+      T-shirt Image: ${tshirtImage}<br>
+      Logo Image: ${logoImage}<br>
+      Logo Size: ${logoSize}<br>
+      Text: ${text}<br>
+      Text Color: ${textColor}<br>
+      T-shirt Size: ${tshirtSize}
+  `;
+  cartItems.appendChild(listItem);
+
+  // You can further process the cart items, send them to the server, etc.
 }

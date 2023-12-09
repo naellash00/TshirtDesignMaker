@@ -97,7 +97,7 @@ body {
 
 .button-design {
   width: 150px;
-  margin: 7% 0; /* تحديد المسافة العمودية بين الأزرار */
+  margin: 4% 0; /* تحديد المسافة العمودية بين الأزرار */
   background-color: #bd2130;
   border: none;
   padding: 10px 15px;

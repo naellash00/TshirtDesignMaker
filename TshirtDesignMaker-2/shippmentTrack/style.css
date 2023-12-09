@@ -17,12 +17,12 @@ margin: 10px;
 
 }
 
-.main input {
-padding: 10px;
-margin: 10px;
-background-color: rgb(245, 245, 245);
-border: 1px rgb(226, 226, 226) solid;
-border-radius: 3px;
+.main input{
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(245, 245, 245);
+    border: 1px rgb(226, 226, 226) solid;
+    border-radius: 3px;
 }
 
 input[type="submit"]{
@@ -33,13 +33,13 @@ color: white; /* color of lines written on the bottom */
 cursor: pointer; /* the hand looking pointer */
 }
 #orderNumber {
-    background-color: rgb(232, 151, 151);
+    background-color: rgb(253, 251, 251);
     color: white;
     padding: 10px;
     border-radius: 3px;
 }
 #orderNumber:hover{
-    background-color: rgb(234, 97, 97);
+    background-color: rgb(211, 145, 145);
     transition: 0.5s;
 }
 input[type="submit"]:hover{

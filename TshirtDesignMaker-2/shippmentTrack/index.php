@@ -44,9 +44,9 @@ include ('form.php');
       <!-- Take the order number from the user and check -->
     <div class = "main">
     <h1>Shipment Tracking </h1><br>
-    <i>please enter your order number</i> <br> <br>
+    <i>Please enter your order number</i> <br> <br>
     <form action="index.php" method = "POST">
-        <input type="text" name = "orderNumber" id= "orderNumber"><br>
+        <input type="text" name = "orderNumber" id= "orderNumber" placeholder="Order Number"><br>
         <br>
         <input type="submit" name = "submit" id = "submit" value = "Track" ><br>
         <?php

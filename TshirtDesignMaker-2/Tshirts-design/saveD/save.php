@@ -4,18 +4,19 @@
 include('conn.php');
 
 // Extract data from the received POST data
-$userID = $_POST['userID'] ?? '';
-$tshirtImageURL = $_POST['tshirtImageURL'] ?? '';
-$logoSize = $_POST['logoSize'] ?? '';
-$textContent = $_POST['textContent'] ?? '';
-$textColor = $_POST['textColor'] ?? '';
-$logoURL = $_POST['logoURL'] ?? '';
+$userID = $_POST['user_id'] ?? '';
+$logoURL = $_POST['logo_url'] ?? '';
+$logoSize = $_POST['logo_size'] ?? '';
+$tscolorURL = $_POST['tscolor_url'] ?? '';
+$words = $_POST['words'] ?? '';
+$wordsColor = $_POST['words_color'] ?? '';
+$designName = $_POST['design_name'] ?? '';
 
 // Check if required data is present
-if (isset($userID, $tshirtImageURL, $logoSize, $textContent, $textColor, $logoURL)) {
+if (isset('user_id', 'logo_url', 'logo_size', 'tscolor_url',' words', 'words_color', 'design_name')) {
     // Save file URLs to the database using prepared statement
-    $stmt = $conn->prepare("INSERT INTO design('userID', 'tshirt_image_url', 'logo_size', 'text_content', 'text_color' ,'logo_url') VALUES (?, ?, ?, ?, ? ,?)");
-    $stmt->bind_param("ssssss", $userID, $tshirtImageURL, $logoSize, $textContent, $textColor, $logoURL);
+    $stmt = $conn->prepare("INSERT INTO prevdesigns (user_id, logo_url, logo_size, tscolor_url, words, words_color, design_name) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $userID, $logoURL, $logoSize, $tscolorURL, $words, $wordsColor, $designName);
 
     // Execute the prepared statement
     if ($stmt->execute()) {
@@ -32,3 +33,4 @@ if (isset($userID, $tshirtImageURL, $logoSize, $textContent, $textColor, $logoUR
 
 // Close the database connection
 $conn->close();
+?>

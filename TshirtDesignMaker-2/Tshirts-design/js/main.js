@@ -89,73 +89,75 @@ function resizeLogo() {
     logoOverlay.style.top = y + 'px';
   });
 }
-
-
-
 // Function to save the design 
-// Function to save the design 
-function saveDesign() {
-  const logoInput = document.getElementById ('logo').files[0];
-  const logoOverlay = document.getElementById('logo-overlay');
-  const tshirtImg = document.getElementById('tshirt-img');
+// في main.js أو ملف JavaScript ذي صلة
+function sendDataToServer(userID, designName, price, tscolorsURL, designID, logoURL, logoSize, words, wordsColor) {
   const formData = new FormData();
 
-  formData.append('logo', logoInput); // Append the logo file directly
-  formData.append('tshirtImageURL', tshirtImg.src);
-  formData.append('logoSize', document.getElementById('logo-size').value);
-  formData.append('textContent', document.getElementById('text').value);
-  formData.append('textColor', document.getElementById('text-color').value);
+  formData.append('user_id', userID);
+  formData.append('design_name', designName);
+  formData.append('price', price);
+  formData.append('tscolors_url', tscolorsURL);
+  formData.append('design_id', designID);
+  formData.append('logo_url', logoURL);
+  formData.append('logo_size', logoSize);
+  formData.append('words', words);
+  formData.append('words_color', wordsColor);
 
   fetch('save.php', {
     method: 'POST',
     body: formData,
   })
-  .then(response => response.text())
-  .then(data => {
-    console.log('Success:', data);
-    alert('Design saved successfully!');
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-    alert('Failed to save design.');
-  });
+    .then(response => response.text())
+    .then(data => {
+      console.log('Success:', data);
+      alert('Design saved successfully!');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Failed to save design.');
+    });
 }
 
+// Example usage:
+//$userID = getUserId();
+//echo $userID; // Use $userID as needed in your application
 
-// Function to get file extension from file name
-function getFileExtension(filename) {
-  const dotIndex = filename.lastIndexOf('.');
-  if (dotIndex !== -1) {
-    return filename.substring(dotIndex + 1);
-  }
-  return '';
-}
+
 function previousDesign() {
   console.log('previousDesign');
   var pageURL = 'saveD/previous-design.php';
   window.location.href = pageURL;
 }
-// في JavaScript
-function addToCart(userId) {
-  const tshirtImage = document.getElementById('tshirt-image').value;
-  const logoImage = document.getElementById('logo-image').value;
-  const logoSize = document.getElementById('logo-size').value;
-  const text = document.getElementById('text').value;
-  const textColor = document.getElementById('text-color').value;
-  const tshirtSize = document.getElementById('tshirt-size').value;
+// Function to add the design to the shopping cart
+function addToCart() {
+  // Retrieve design details
+  const userID = getUserId();
+  const designName = document.getElementById('design_name').value;
+  const price = calculatePrice(); // يجب عليك تنفيذ منطق حساب السعر
+  const tshirtColorURL = document.getElementById('color').value;
+  const productID = generateProductID(); // يجب عليك تنفيذ منطق إنشاء معرف المنتج
+  const logoURL = document.getElementById('logo-overlay').style.backgroundImage;
 
-  const cartItems = document.getElementById('cart-items');
-  const listItem = document.createElement('li');
-  listItem.innerHTML = `
-      User ID: ${userId}<br>
-      T-shirt Image: ${tshirtImage}<br>
-      Logo Image: ${logoImage}<br>
-      Logo Size: ${logoSize}<br>
-      Text: ${text}<br>
-      Text Color: ${textColor}<br>
-      T-shirt Size: ${tshirtSize}
-  `;
-  cartItems.appendChild(listItem);
+  // إنشاء كائن يمثل التصميم
+  const design = {
+    user_id: userID,
+    design_name: designName,
+    price: price,
+    tscolors_url: tshirtColorURL,
+    product_id: productID,
+    logo_url: logoURL
+  };
 
-  // You can further process the cart items, send them to the server, etc.
+  // استرجاع عناصر السلة الحالية من localStorage
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // إضافة التصميم إلى السلة
+  cartItems.push(design);
+
+  // حفظ عناصر السلة المحدثة في localStorage
+  localStorage.setItem('cart', JSON.stringify(cartItems));
+
+  // عرض رسالة نجاح أو أداء أي إجراء آخر حسب الحاجة
+  alert('تمت إضافة التصميم إلى السلة بنجاح!');
 }

@@ -8,6 +8,8 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -39,60 +41,51 @@
     </div>
   </nav>
     <!-- Navbar end -->
-<?php
+<body>
 
-include('conn.php');
-// Retrieve previous designs from the database
-$result = $conn->query("SELECT * FROM design");
+<div class="container mt-5">
+    <?php
+    include('conn.php');
+    // إنشاء اتصال بقاعدة البيانات
+    
+    // استعلام SQL لاسترجاع بيانات التصاميم
+    $sql = "SELECT * FROM prevdesigns";
+    $result = $conn->query($sql);
 
-// Retrieve designs for the dropdown list
-$dropdownResult = $conn->query("SELECT * FROM design");
+    // عرض البيانات بتنسيق بطاقة Bootstrap
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          echo '
+          <div class="card" style="width: 18rem;">
+              <img src="' . $row['logo_url'] . '" class="card-img-top" alt="Design Image">
+              <div class="card-body">
+                  <h5 class="card-title">User ID: ' . $row['user_id'] . '</h5>
+                  <p class="card-text">
+                      <strong>Design Name:</strong> ' . $row['design_name'] . '<br>
+                      <strong>Logo Size:</strong> ' . $row['logo_size'] . '<br>
+                      <strong>Text Color URL:</strong> ' . $row['tscolor_url'] . '<br>
+                      <strong>Words:</strong> ' . $row['words'] . '<br>
+                      <strong>Words Color:</strong> ' . $row['words_color'] . '
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+      ';
+      
+        }
+    } else {
+        echo "لا توجد بيانات لعرضها.";
+    }
 
-?>
+    // قم بإغلاق اتصال قاعدة البيانات
+    $conn->close();
+    ?>
+</div>
 
-<!-- Dropdown list -->
-<select id="designDropdown">
-    <option value="">Select one of our designs ...</option>
-    <?php while ($dropdownRow = $dropdownResult->fetch_assoc()) : ?>
-        <!-- Use the URL of the logo as the value for each option -->
-        <option value="<?= $dropdownRow["logo_url"] ?>">
-        </option>
-    <?php endwhile; ?>
-</select>
-
-<!-- Display Previous Designs -->
-<?php if ($result->num_rows > 0) : ?>
-    <h2>Previous Designs</h2>
-    <table>
-        <tr>
-            <th>Logo</th>
-            <th>T-shirt Image</th>
-            <th>Logo Size</th>
-            <th>Text Content</th>
-            <th>Text Color</th>
-        </tr>
-        <?php while ($row = $result->fetch_assoc()) : ?>
-            <tr>
-                <td><img src="<?= $row["logo_url"] ?>" width="100" height="100" /></td>
-                <td><img src="<?= $row["tshirt_image_url"] ?>" width="100" height="100" /></td>
-                <td><?= $row["logo_size"] ?></td>
-                <td><?= $row["text_content"] ?></td>
-                <td><?= $row["text_color"] ?></td>
-                <td><?= $row["userID"] ?></td>
-
-            </tr>
-        <?php endwhile; ?>
-    </table>
-<?php else : ?>
-    <p>No previous designs found.</p>
-<?php endif; ?>
-
-<!-- Additional HTML and JavaScript can be added as needed -->
+<!-- Include Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
-
-<?php
-// Close the database connection
-$conn->close();
-?>

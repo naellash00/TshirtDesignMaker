@@ -161,3 +161,27 @@ function addToCart() {
   // عرض رسالة نجاح أو أداء أي إجراء آخر حسب الحاجة
   alert('تمت إضافة التصميم إلى السلة بنجاح!');
 }
+// script.js
+
+function handleTextEntry() {
+  const textInput = document.getElementById('text');
+  const wordCountMessage = document.getElementById('wordCountMessage');
+  const wordLimit = 3;
+
+  textInput.addEventListener('input', function () {
+    const words = textInput.value.split(/\s+/).filter(function (word) {
+      return word.length > 0;
+    });
+
+    if (words.length > wordLimit) {
+      // Truncate the text to the desired word limit
+      textInput.value = words.slice(0, wordLimit).join(' ');
+    }
+
+    const remainingWords = wordLimit - words.length;
+    wordCountMessage.textContent = `Words remaining: ${remainingWords}`;
+  });
+}
+
+// Call the function when the DOM is ready
+document.addEventListener('DOMContentLoaded', handleTextEntry);

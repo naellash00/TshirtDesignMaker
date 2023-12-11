@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T-shirt Design Maker</title>
+  <link rel="stylesheet" href="css/styles.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
@@ -103,6 +103,29 @@
       border-radius: 5px;
       transition: background-color 0.3s;
     }
+    #text-overlay{
+  position: absolute;
+  top: 65%;
+  font-size: 17px;
+  font-weight: bold;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 121px; /* تحديد عرض أقصى بنسبة مئوية من القميص */
+  text-align: center; /* يمكنك توسيع هذا لضمان توسيط النص داخل الحدود */
+}
+#logo-overlay {
+  position: absolute;
+  top: 73%;
+  right: 47%;
+  left: 51%;
+  transform: translateX(-50%);
+  max-width: 120px; /* تحديد عرض أقصى بنسبة مئوية من القميص */
+  text-align: center; /* يمكنك توسيع هذا لضمان توسيط النص داخل الحدود */
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
   </style>
 </head>
 
@@ -177,11 +200,11 @@
 
           <!-- Text Controls -->
           <div id="text-controls">
-            <div id="text-input" class="input-group">
-              <label for="text">Add Text:</label>
-              <input type="text" id="text" class="form-control" placeholder="Enter text">
-            </div>
-          </div>
+  <div id="text-input" class="input-group">
+    <label for="text">Add Text (up to 3 words):</label>
+    <input type="text" id="text" class="form-control" placeholder="Enter text" maxlength="15">
+  </div>
+</div>
           <div id="text-color-input" class="input-group">
               <label for="text-color">Text Color:</label>
               <input type="color" id="text-color" class="form-control" value="#ffffff">
@@ -214,7 +237,8 @@
  </div>
 </div>
 
-
+ 
+<script src="js/main.js"></script>
 </body>
 
 </html>

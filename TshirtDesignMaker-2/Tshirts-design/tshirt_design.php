@@ -5,14 +5,104 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T-shirt Design Maker</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
-   integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6p9k6GdldI5ELryoq9RSJoMEe5I6E5Pd' crossorigin='anonymous'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <style>
-   
+    /* Additional CSS styling can be added here */
+    .row {
+      display: flex;
+      justify-content: center;
+    }
+
+    .column {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .dropdown-container,
+    .input-group,
+    #logo-input,
+    #logo-size-input {
+      margin-bottom: 10px;
+      width: 200px;
+      /* Adjust the width as needed */
+    }
+
+    /* Additional styling for better aesthetics */
+    label {
+      margin-bottom: 4%;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+      margin-left: 8px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    #logo-size-input {
+      display: flex;
+      align-items: center;
+    }
+
+    #logo-size-input label {
+      margin-right: 8px;
+    }
+
+    #logo-size {
+      width: 81px;
+      /* Adjust the width as needed */
+    }
+
+    .form-control {
+      display: block;
+      width: 100%;
+      height: calc(1.5em + .75rem + 2px);
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #e9ecef;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 26.25rem;
+      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    #buttons-container {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+
+    .button-design {
+      width: 177px;
+      margin: 10px 3px;
+      background-color: #bd2130;
+      border: none;
+      padding: 11px 34px;
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
   </style>
 </head>
 
@@ -45,78 +135,86 @@
     </div>
   </nav>
   <!-- Navbar end -->
-
   
-  <div id="buttons-container">
-  <button class="button-design" onclick="customizeTshirt()"> Create Design</button>
-  <button class="button-design" onclick="sendDataToServer()">Save design</button>
-  <button class="button-design" onclick="addToCart()"> Add to cart</button>
-  <button class="button-design" onclick="previousDesign()">Previous Designs</button>
-</div>
+<div class="container">
+<button type="button" class="btn btn-outline-danger" onclick="previousDesign()" style="margin-top: 11px;margin-bottom:15%; margin-left: -55px; margin-right:90px;">Previous Designs</button>
+<button type="button" class="btn btn-outline-danger" onclick="saveDesign()" style="margin-top: 12px;margin-bottom:15%; margin-left: -90px; margin-right:90px;">Save Design</button>
 
-<div id="tshirt-container">
-  <div id="text-overlay" class="overlay"></div>
-  <div id="logo-overlay" class="overlay"></div>
-  <img id="tshirt-img" src="Tshirts-images\WhiteT-shirt1.png" alt="T-shirt">
-  <div id="canvas-container"></div>
-</div>
-
-<div id="color-selector">
-  <label for="color">T-shirt Color:</label>
-  <select id="color" onchange="changeTshirtColor()">
-    <option value="white">White</option>
-    <option value="yellow">Yellow</option>
-    <option value="pink">Pink</option>
-    <option value="blue">Blue</option>
-    <option value="baby-pink">Baby Pink</option>
-  </select>
-</div>
-
-<div id="size-input">
-  <label for="tshirt-size">T-shirt Size:</label>
-  <select id="tshirt-size">
-    <option value="s">Small</option>
-    <option value="m">Medium</option>
-    <option value="l">Large</option>
-    <option value="xl">X-Large</option>
-  </select>
-</div>
-
-<div id="logo-input">
-  <label for="logo">Add Logo:</label>
-  <input type="file" id="logo" accept="image/*" onchange="loadLogo()">
-</div>
-
-<div id="logo-size-input">
-  <label for="logo-size">Logo Size:</label>
-  <input type="number" id="logo-size" value="90" min="85" max="100" step="1" onchange="resizeLogo()">
-</div>
-
-<div id="text-controls" class="input-group">
-  <div id="text-input" class="input-group">
-    <label for="text">Add Text:</label>
-    <input type="text" id="text" placeholder="Enter Word in your T-shirt">
-  </div>
-
-  <div id="design_name" class="input-group">
-    <label for="design_name">Design Name:</label>
-    <input type="text" id="design_name" placeholder="Enter Design Name">
-  </div>
-
-  <div id="text-color-input" class="input-group">
-    <label for="text-color">Text Color:</label>
-    <input type="color" id="text-color" value="#ffffff">
-  </div>
-</div>
-
-            </div>
+  <div class="row">
+    
+      <!-- Fixed bottom navigation bar -->
+    <div class="column">
+        <div id="app">
+          <div id="tshirt-container">
+            <div id="text-overlay" class="overlay"></div>
+            <div id="logo-overlay" class="overlay"></div>
+            <img id="tshirt-img" src="Tshirts-images\WhiteT-shirt1.png" alt="T-shirt">
           </div>
         </div>
-      </div>
-    </div>
+      
+          <!-- Color Selection Dropdown -->
+         <div class="dropdown-container">
+            <label for="color">T-shirt Color:</label>
+            <select id="color" class="form-control" onchange="changeTshirtColor()">
+              <option value="white">White</option>
+              <option value="yellow">Yellow</option>
+              <option value="pink">Magenta</option>
+              <option value="blue">Blue</option>
+              <option value="baby-pink">Baby Pink</option>
+            </select>
+          </div>
+        
+          <!-- Size Selection Dropdown -->
+          <div class="dropdown-container">
+            <label for="tshirt-size">T-shirt Size:</label>
+            <select id="tshirt-size" class="form-control">
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="l">L</option>
+              <option value="xl">XL</option>
+            </select>
+          </div>
+
+          <!-- Text Controls -->
+          <div id="text-controls">
+            <div id="text-input" class="input-group">
+              <label for="text">Add Text:</label>
+              <input type="text" id="text" class="form-control" placeholder="Enter text">
+            </div>
+          </div>
+          <div id="text-color-input" class="input-group">
+              <label for="text-color">Text Color:</label>
+              <input type="color" id="text-color" class="form-control" value="#ffffff">
+          </div>
+          
+          <!-- Logo Input, Logo Size Input -->
+          <div class="column">
+            <div id="logo-input">
+              <label for="logo">Logo:</label>
+              <input type="file" id="logo" accept="image/*" onchange="loadLogo()">
+            </div>
+          <div id="logo-size-input">
+            <label for="logo-size">Logo Size:</label>
+            <input type="number" id="logo-size" class="form-control" value="90" min="85" max="100" step="1" onchange="resizeLogo()">
+            <!-- Additional Buttons -->
+          </div>
+          <div>
+            
+           <button class="btn btn-primary button-design btn-sm" onclick="customizeTshirt()">Create design</button>
+           <button class="btn btn-primary button-design btn-sm" onclick="saveDesign()">Save Design</button>
+           <button class="btn btn-primary button-design btn-sm" onclick="addToCart()">Add To Cart></button>
+
+          </div>
+
+       </div>
+     </div>
   </div>
-  
-  <script src="js/main.js"></script>
+  </div>
+  </div>
+ </div>
+</div>
+
+
 </body>
 
 </html>

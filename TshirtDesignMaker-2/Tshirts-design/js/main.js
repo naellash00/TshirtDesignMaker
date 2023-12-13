@@ -23,9 +23,8 @@ function changeTshirtColor() {
       break;
   }
 
-  // Change canvas container background color based on T-shirt color
-  canvasContainer.style.backgroundColor = colorSelector.value === 'white' ? 'black' : 'white';
 }
+
 
 // Function to customize the T-shirt with user input
 function customizeTshirt() {
@@ -60,7 +59,6 @@ function loadLogo() {
     reader.readAsDataURL(file);
   }
 }
-
 // Function to resize the displayed logo based on user input
 function resizeLogo() {
   const logoOverlay = document.getElementById('logo-overlay');
@@ -88,35 +86,6 @@ function resizeLogo() {
     logoOverlay.style.left = x + 'px';
     logoOverlay.style.top = y + 'px';
   });
-}
-// Function to save the design 
-// في main.js أو ملف JavaScript ذي صلة
-function sendDataToServer(userID, designName, price, tscolorsURL, designID, logoURL, logoSize, words, wordsColor) {
-  const formData = new FormData();
-
-  formData.append('user_id', userID);
-  formData.append('design_name', designName);
-  formData.append('price', price);
-  formData.append('tscolors_url', tscolorsURL);
-  formData.append('design_id', designID);
-  formData.append('logo_url', logoURL);
-  formData.append('logo_size', logoSize);
-  formData.append('words', words);
-  formData.append('words_color', wordsColor);
-
-  fetch('save.php', {
-    method: 'POST',
-    body: formData,
-  })
-    .then(response => response.text())
-    .then(data => {
-      console.log('Success:', data);
-      alert('Design saved successfully!');
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      alert('Failed to save design.');
-    });
 }
 
 // Example usage:
@@ -182,6 +151,67 @@ function handleTextEntry() {
     wordCountMessage.textContent = `Words remaining: ${remainingWords}`;
   });
 }
+document.addEventListener('DOMContentLoaded', function() {
+  // Your code here
+});
 
-// Call the function when the DOM is ready
-document.addEventListener('DOMContentLoaded', handleTextEntry);
+
+// Function to save the design without using JSON
+function saveDesign() {
+  
+  const logoInput = document.getElementById('logo').files[0];
+  const logoOverlay = document.getElementById('logo-overlay');
+  const tshirtImg = document.getElementById('tshirt-img');
+  const words = document.getElementById('text').value;
+  const logoSize = document.getElementById('logo-size').value;
+  const wordsColor = document.getElementById('text-color').value;
+  const tshirtSize = document.getElementById('tshirt-size').value;
+  const quantity = document.getElementById('quantity').value;
+  const formData = new FormData();
+
+
+  // Append the necessary data to the FormData object
+
+  formData.append('logo_url',  logoOverlay.style.backgroundImage.slice(4, -1).replace(/['"]/g, ""));
+  formData.append('logo_size', document.getElementById('logo-size').value);
+  formData.append('tscolor_url', tshirtImg.src);
+  formData.append('words', words);
+  formData.append('words_color', wordsColor);
+  formData.append('design_id', generateRandomNumber());
+  formData.append('priproduct', '20$');
+  formData.append('quantity', quantity);
+
+
+  // Send the data to the server (save.php) for processing
+  fetch('save.php', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => response.text())
+  .then(data => {
+    console.log('Success:', data);
+    alert('Design saved successfully!');
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    alert('Failed to save design.');
+  });
+}
+
+// Function to get file extension from file name
+function getFileExtension(filename) {
+  const dotIndex = filename.lastIndexOf('.');
+  if (dotIndex !== -1) {
+    return filename.substring(dotIndex + 1);
+  }
+  return '';
+}
+
+
+function generateRandomNumber() {
+  return Math.floor(Math.random() * 100); // يمكن تعديل الرقم 100 حسب الحاجة
+}
+
+// استخدام الوظيفة
+var randomNumber = generateRandomNumber();
+console.log(randomNumber);

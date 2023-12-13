@@ -174,6 +174,16 @@
             <img id="tshirt-img" src="Tshirts-images\WhiteT-shirt1.png" alt="T-shirt">
           </div>
         </div>
+        <!-- عنصر لعرض السعر -->
+        <div id="price-display">
+  <p class="text-left fs-5">$20.00</p>
+</div>
+
+<!-- Quantity Input -->
+<div class="input-group">
+  <label for="quantity">Quantity: </label>
+  <input type="number" id="quantity" class="form-control" min="1" value="1" onchange="calculatePrice()">
+</div>
       
           <!-- Color Selection Dropdown -->
          <div class="dropdown-container">
@@ -219,14 +229,13 @@
           <div id="logo-size-input">
             <label for="logo-size">Logo Size:</label>
             <input type="number" id="logo-size" class="form-control" value="90" min="85" max="100" step="1" onchange="resizeLogo()">
-            <!-- Additional Buttons -->
+           
           </div>
           <div>
             
            <button class="btn btn-primary button-design btn-sm" onclick="customizeTshirt()">Create design</button>
-           <button class="btn btn-primary button-design btn-sm" onclick="saveDesign()">Save Design</button>
-           <button class="btn btn-primary button-design btn-sm" onclick="addToCart()">Add To Cart></button>
-
+           <button class="btn btn-primary button-design btn-sm" onclick="addToCart()">Add To Cart</button>
+           <button class="btn btn-primary button-design btn-sm" onclick="saveDesign()">Save</button>
           </div>
 
        </div>
@@ -238,7 +247,7 @@
 </div>
 
  
-<script src="js/main.js"></script>
+<script src="../Tshirts-design/js/main.js"></script>
 </body>
 
 </html>

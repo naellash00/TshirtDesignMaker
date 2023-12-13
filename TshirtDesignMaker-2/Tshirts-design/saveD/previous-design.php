@@ -41,51 +41,56 @@
     </div>
   </nav>
     <!-- Navbar end -->
-<body>
 
-<div class="container mt-5">
-    <?php
-    include('conn.php');
-    // إنشاء اتصال بقاعدة البيانات
+    <div class="container mt-5">
     
-    // استعلام SQL لاسترجاع بيانات التصاميم
+    <?php
+    // اتصال بقاعدة البيانات
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "tshirtdesignmaker";
+    
+    // Establish database connection
+    $conn = new mysqli('localhost', 'root', '', 'tshirtdesignmaker');
+  
+    // فحص الاتصال
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    // استعلام SQL لاسترجاع البيانات من قاعدة البيانات
     $sql = "SELECT * FROM prevdesigns";
     $result = $conn->query($sql);
-
-    // عرض البيانات بتنسيق بطاقة Bootstrap
+    
+    // عرض البيانات في تصميم Bootstrap
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-          echo '
-          <div class="card" style="width: 18rem;">
-              <img src="' . $row['logo_url'] . '" class="card-img-top" alt="Design Image">
-              <div class="card-body">
-                  <h5 class="card-title">User ID: ' . $row['user_id'] . '</h5>
-                  <p class="card-text">
-                      <strong>Design Name:</strong> ' . $row['design_name'] . '<br>
-                      <strong>Logo Size:</strong> ' . $row['logo_size'] . '<br>
-                      <strong>Text Color URL:</strong> ' . $row['tscolor_url'] . '<br>
-                      <strong>Words:</strong> ' . $row['words'] . '<br>
-                      <strong>Words Color:</strong> ' . $row['words_color'] . '
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-          </div>
-      ';
-      
+            echo '
+                <div class="card mb-4" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div style="position: relative;">
+                                <img src="' . $row["logo_url"] . '" class="img-fluid logo-overlay" alt="Logo" style="position: absolute; top: 0; left: 0; z-index: 2;">
+                                <img src="' . $row["tscolor_url"] . '" class="img-fluid rounded-start" alt="T-shirt" style="z-index: 1;">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Design number: ' . $row["design_id"] . '</h5>
+                                <p class="card-text">' . $row["words"] . '</p>
+                                <p class="card-text"><small class="text-body-secondary">Word Color: ' . $row["words_color"] . '</small></p>
+                                <p class="card-text"><small class="text-body-secondary">Logo Size: ' . $row["logo_size"] . '</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
         }
     } else {
-        echo "لا توجد بيانات لعرضها.";
+        echo "0 results";
     }
-
-    // قم بإغلاق اتصال قاعدة البيانات
+    
+    // إغلاق الاتصال بقاعدة البيانات
     $conn->close();
     ?>
 </div>
-
-<!-- Include Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</body>
-</html>

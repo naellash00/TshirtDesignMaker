@@ -212,7 +212,7 @@
           <!-- Text Controls -->
           <div id="text-controls">
   <div id="text-input" class="input-group">
-    <label for="text">Add Text (up to 3 words):</label>
+    <label for="text">Add Text (15 letter only):</label>
     <input type="text" id="text" class="form-control" placeholder="Enter text" maxlength="15">
   </div>
 </div>

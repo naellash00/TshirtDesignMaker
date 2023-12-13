@@ -13,12 +13,12 @@
 </head>
 
 <body>
-<!-- Navbar start -->
+  <!-- Navbar start -->
   <!-- first tag to Navbar -->
   <!--navbar-expand makes you responsive -->
   <nav class="navbar navbar-expand-md navbar-light" style="background-color: #fde3e9;">
-  <!-- Brand -->
-    <a class="navbar-brand" href="index.php"><i class=""></i>&nbsp;&nbsp; T-shirt Design Maker </a>
+    <!-- Brand -->
+    <a class="navbar-brand" href="../payment-code/index.php"><i class=""></i>&nbsp;&nbsp; T-shirt Design Maker </a>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
           <a class="nav-link" href="../shippmentTrack/index.php"><i class="bi bi-truck"></i> Tracking</a><!-- for track page -->
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="../signup_and_login/index.php"><i class="bi bi-person-fill"></i>  Login </a>
+          <a class="nav-link " href="../signup_and_login/index.php"><i class="bi bi-person-fill"></i> Login </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../payment-code/cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a><!-- for cart page -->
@@ -40,59 +40,58 @@
       </ul>
     </div>
   </nav>
-    <!-- Navbar end -->
+  <!-- Navbar end -->
+<div class="container mt-5">
 
-    <div class="container mt-5">
-    
     <?php
     // اتصال بقاعدة البيانات
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "tshirtdesignmaker";
-    
+
     // Establish database connection
     $conn = new mysqli('localhost', 'root', '', 'tshirtdesignmaker');
-  
+
     // فحص الاتصال
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    
+
     // استعلام SQL لاسترجاع البيانات من قاعدة البيانات
     $sql = "SELECT * FROM prevdesigns";
     $result = $conn->query($sql);
-    
+
     // عرض البيانات في تصميم Bootstrap
     if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo '
-            <div class="card mb-4" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <div style="position: relative;">
-                            <img src="' . $row["tscolor_url"] . '" class="img-fluid rounded-start" alt="T-shirt" style="z-index: 1;">
-                            <img src="' . $row["logo_url"] . '" class="img-fluid logo-overlay" alt="Logo" style="position: absolute; top: 0; left: 0; z-index: 2; width: 200px; height: 100px;">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Design number: ' . $row["design_id"] . '</h5>
-                            <p class="card-text">' . $row["words"] . '</p>
-                            <p class="card-text"><small class="text-body-secondary">Word Color: ' . $row["words_color"] . '</small></p>
-                            <p class="card-text"><small class="text-body-secondary">Logo Size: ' . $row["logo_size"] . '</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>';
-    }
-} else {
-    echo "0 results";
-}
+      echo '<div class="card-group">'; // Start the card-group
 
-    // إغلاق الاتصال بقاعدة البيانات
-    $conn->close();
-    ?>
+      while ($row = $result->fetch_assoc()) {
+          echo '
+              <div class="card text-center">
+                  <div class="position-relative" style="overflow: hidden; height: 400px;">
+                      <img src="' . $row["tscolor_url"] . '" class="card-img-top" alt="T-shirt" style="z-index: 1; width: 100%; height: 100%;">
+                      <img src="' . $row["logo_url"] . '" class="img-fluid logo-overlay" alt="Logo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; width: 100px; height: 50px;">
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">Design number: ' . $row["design_id"] . '</h5>
+                      <p class="card-text">' . $row["words"] . '</p>
+                  </div>
+                  <div class="card-footer">
+                      <small class="text-body-secondary">Last updated 3 mins ago</small>
+                  </div>
+              </div>';
+      }
+
+      echo '</div>'; // End the card-group
+  } else {
+      echo "0 results";
+  }
+
+  // إغلاق الاتصال بقاعدة البيانات
+  $conn->close();
+  ?>
 </div>
 
+</body>
 

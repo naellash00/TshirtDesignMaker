@@ -2,7 +2,6 @@
 
 function changeTshirtColor() {
   const tshirtImg = document.getElementById('tshirt-img');
-  const canvasContainer = document.getElementById('canvas-container');
   const colorSelector = document.getElementById('color');
 
   switch (colorSelector.value) {
@@ -99,7 +98,7 @@ function previousDesign() {
   window.location.href = pageURL;
 }
 // Function to add the design to the shopping cart
-function addToCart() {
+function addToCar() {
   // Retrieve design details
   const userID = getUserId();
   const designName = document.getElementById('design_name').value;
@@ -130,6 +129,39 @@ function addToCart() {
   // عرض رسالة نجاح أو أداء أي إجراء آخر حسب الحاجة
   alert('تمت إضافة التصميم إلى السلة بنجاح!');
 }
+function addToCart() {
+  const userID = getUserId();
+  const designName = document.getElementById('design_name').value;
+  const price = calculatePrice();
+  const tshirtColorURL = document.getElementById('color').value;
+  const productID = generateProductID();
+  const logoURL = document.getElementById('logo-overlay').style.backgroundImage;
+
+  const design = {
+    user_id: userID,
+    product_name: designName, // تحديث اسم الحقل إلى اسم حقل الاسم في قاعدة البيانات
+    product_price: price, // تحديث اسم الحقل إلى اسم حقل السعر في قاعدة البيانات
+    product_qty: 1, // يمكنك تعيين الكمية كـ 1 أو أي قيمة تراها مناسبة
+    product_image: tshirtColorURL, // تحديث اسم الحقل إلى اسم حقل الصورة في قاعدة البيانات
+    product_code: productID, // تحديث اسم الحقل إلى اسم حقل الرمز في قاعدة البيانات
+  };
+
+  // استخدام Ajax لإرسال البيانات إلى الخادم
+  $.ajax({
+    url: 'insert_design.php', // توجيه إلى ملف PHP لإدراج التصميم في قاعدة البيانات
+    type: 'POST',
+    data: { design: design },
+    success: function(response) {
+      // عرض رسالة نجاح أو إعادة توجيه المستخدم إلى صفحة السلة
+      alert('تمت إضافة التصميم إلى السلة بنجاح!');
+      window.location.href = 'cart.php'; // تغيير اسم الصفحة حسب اسم صفحة السلة الخاصة بك
+    },
+    error: function(error) {
+      console.error('خطأ في إضافة التصميم إلى السلة', error);
+    }
+  });
+}
+
 // script.js
 
 function handleTextEntry() {

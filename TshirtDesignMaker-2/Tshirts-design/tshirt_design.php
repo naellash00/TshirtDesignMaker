@@ -127,6 +127,7 @@
 }
 
   </style>
+
 </head>
 
 <body>
@@ -235,7 +236,6 @@
             
            <button class="btn btn-primary button-design btn-sm" onclick="customizeTshirt()">Create design</button>
            <button class="btn btn-primary button-design btn-sm" onclick="addToCart()">Add To Cart</button>
-           <button class="btn btn-primary button-design btn-sm" onclick="saveDesign()">Save</button>
           </div>
 
        </div>

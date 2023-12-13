@@ -180,7 +180,7 @@ function saveDesign() {
   formData.append('design_id', generateRandomNumber());
   formData.append('priproduct', '20$');
   formData.append('quantity', quantity);
-
+ 
 
   // Send the data to the server (save.php) for processing
   fetch('save.php', {

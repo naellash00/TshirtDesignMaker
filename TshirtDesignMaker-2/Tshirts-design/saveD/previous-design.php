@@ -65,32 +65,34 @@
     
     // عرض البيانات في تصميم Bootstrap
     if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo '
-                <div class="card mb-4" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <div style="position: relative;">
-                                <img src="' . $row["logo_url"] . '" class="img-fluid logo-overlay" alt="Logo" style="position: absolute; top: 0; left: 0; z-index: 2;">
-                                <img src="' . $row["tscolor_url"] . '" class="img-fluid rounded-start" alt="T-shirt" style="z-index: 1;">
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Design number: ' . $row["design_id"] . '</h5>
-                                <p class="card-text">' . $row["words"] . '</p>
-                                <p class="card-text"><small class="text-body-secondary">Word Color: ' . $row["words_color"] . '</small></p>
-                                <p class="card-text"><small class="text-body-secondary">Logo Size: ' . $row["logo_size"] . '</small></p>
-                            </div>
+    while ($row = $result->fetch_assoc()) {
+        echo '
+            <div class="card mb-4" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div style="position: relative;">
+                            <img src="' . $row["tscolor_url"] . '" class="img-fluid rounded-start" alt="T-shirt" style="z-index: 1;">
+                            <img src="' . $row["logo_url"] . '" class="img-fluid logo-overlay" alt="Logo" style="position: absolute; top: 0; left: 0; z-index: 2; width: 200px; height: 100px;">
                         </div>
                     </div>
-                </div>';
-        }
-    } else {
-        echo "0 results";
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Design number: ' . $row["design_id"] . '</h5>
+                            <p class="card-text">' . $row["words"] . '</p>
+                            <p class="card-text"><small class="text-body-secondary">Word Color: ' . $row["words_color"] . '</small></p>
+                            <p class="card-text"><small class="text-body-secondary">Logo Size: ' . $row["logo_size"] . '</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>';
     }
-    
+} else {
+    echo "0 results";
+}
+
     // إغلاق الاتصال بقاعدة البيانات
     $conn->close();
     ?>
 </div>
+
+

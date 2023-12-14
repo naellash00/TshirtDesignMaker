@@ -1,7 +1,6 @@
 <?php
 	session_start();//Creates the function new session or fills the current session based on the visual identifier passed by GET and POST requests
 	require 'config.php';
-
 	// Add products into the cart table
 	//POST is used to upload data to services
 	//isset to check the existence of the variable

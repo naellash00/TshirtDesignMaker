@@ -64,26 +64,22 @@
 
     // عرض البيانات في تصميم Bootstrap
     if ($result->num_rows > 0) {
-      echo '<div class="card-group">'; // Start the card-group
+      echo '<div class="row row-cols-1 row-cols-md-3 g-4">'; // Start the row
 
       while ($row = $result->fetch_assoc()) {
           echo '
-              <div class="card text-center">
-                  <div class="position-relative" style="overflow: hidden; height: 400px;">
-                      <img src="' . $row["tscolor_url"] . '" class="card-img-top" alt="T-shirt" style="z-index: 1; width: 100%; height: 100%;">
-                      <img src="' . $row["logo_url"] . '" class="img-fluid logo-overlay" alt="Logo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; width: 100px; height: 50px;">
-                  </div>
-                  <div class="card-body">
-                      <h5 class="card-title">Design number: ' . $row["design_id"] . '</h5>
-                      <p class="card-text">' . $row["words"] . '</p>
-                  </div>
-                  <div class="card-footer">
-                      <small class="text-body-secondary">Last updated 3 mins ago</small>
+              <div class="col">
+                  <div class="card">
+                      <img src="' . $row["tscolor_url"] . '" class="card-img-top" alt="T-shirt">
+                      <div class="card-body">
+                          <h5 class="card-title">Design number: ' . $row["design_id"] . '</h5>
+                          <p class="card-text">' . $row["words"] . '</p>
+                      </div>
                   </div>
               </div>';
       }
 
-      echo '</div>'; // End the card-group
+      echo '</div>'; // End the row
   } else {
       echo "0 results";
   }

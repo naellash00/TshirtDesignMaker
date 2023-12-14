@@ -1,5 +1,6 @@
 // Function to change the T-shirt color based on user selection
 
+
 function changeTshirtColor() {
   const tshirtImg = document.getElementById('tshirt-img');
   const colorSelector = document.getElementById('color');
@@ -58,6 +59,8 @@ function loadLogo() {
     reader.readAsDataURL(file);
   }
 }
+
+
 // Function to resize the displayed logo based on user input
 function resizeLogo() {
   const logoOverlay = document.getElementById('logo-overlay');
@@ -189,8 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Function to save the design without using JSON
-function saveDesign() {
-  
+async function saveDesign() {
   const logoInput = document.getElementById('logo').files[0];
   const logoOverlay = document.getElementById('logo-overlay');
   const tshirtImg = document.getElementById('tshirt-img');
@@ -199,51 +201,46 @@ function saveDesign() {
   const wordsColor = document.getElementById('text-color').value;
   const tshirtSize = document.getElementById('tshirt-size').value;
   const quantity = document.getElementById('quantity').value;
-  const formData = new FormData();
 
+  try {
+    // Get user_id using async/await
+    const user_id = await getUserId();
 
-  // Append the necessary data to the FormData object
+    // Create FormData
+    const formData = new FormData();
 
-  formData.append('logo_url',  logoOverlay.style.backgroundImage.slice(4, -1).replace(/['"]/g, ""));
-  formData.append('logo_size', document.getElementById('logo-size').value);
-  formData.append('tscolor_url', tshirtImg.src);
-  formData.append('words', words);
-  formData.append('words_color', wordsColor);
-  formData.append('design_id', generateRandomNumber());
-  formData.append('priproduct', '20$');
-  formData.append('quantity', quantity);
- 
+    // Append the necessary data to the FormData object
+    formData.append('logo_url', logoOverlay.style.backgroundImage.slice(4, -1).replace(/['"]/g, ""));
+    formData.append('logo_size', document.getElementById('logo-size').value);
+    formData.append('tscolor_url', tshirtImg.src);
+    formData.append('words', words);
+    formData.append('words_color', wordsColor);
+    formData.append('design_id', generateRandomNumber());
+    formData.append('priproduct', '20$');
+    formData.append('quantity', quantity);
+    formData.append('user_id', user_id); // Add user_id to the form data
 
-  // Send the data to the server (save.php) for processing
-  fetch('save.php', {
-    method: 'POST',
-    body: formData,
-  })
-  .then(response => response.text())
-  .then(data => {
+    // Send the data to the server (save.php) for processing
+    const response = await fetch('save.php', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.text();
     console.log('Success:', data);
     alert('Design saved successfully!');
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error('Error:', error);
     alert('Failed to save design.');
-  });
-}
-
-// Function to get file extension from file name
-function getFileExtension(filename) {
-  const dotIndex = filename.lastIndexOf('.');
-  if (dotIndex !== -1) {
-    return filename.substring(dotIndex + 1);
   }
-  return '';
 }
 
+// Rest of your code remains unchanged
 
+// Rest of your code remains unchanged
 function generateRandomNumber() {
-  return Math.floor(Math.random() * 100); // يمكن تعديل الرقم 100 حسب الحاجة
+  return Math.floor(Math.random() * 100);
 }
 
-// استخدام الوظيفة
 var randomNumber = generateRandomNumber();
 console.log(randomNumber);

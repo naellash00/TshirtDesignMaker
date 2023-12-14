@@ -25,14 +25,14 @@
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link " href="index.php"><i class="bi bi-palette2"></i>  Design</a>
+      <li class="nav-item">
+          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a><!-- for Checkout page -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
+          <a class="nav-link" href="../shippmentTrack/index.php"><i class="bi bi-truck"></i> Tracking</a><!-- for track page -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php"><i class="bi bi-truck"></i> tracking</a><!-- for track page -->
+          <a class="nav-link " href="../signup_and_login/index.php"><i class="bi bi-person-fill"></i>  Login </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
@@ -58,15 +58,18 @@
           <table class="table table-bordered table-striped text-center">
             <thead>
               <tr>
-                <td colspan="7">
+                <td colspan="10">
                
                   <h4 class="text-center text-info m-0">Products in your cart!</h4> 
                 </td>
               </tr>
               <tr>
                 <th>ID</th>
-                <th>Image</th>
-                <th>Product</th>
+                <th>Logo</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Text</th>
+                <th>Text Color</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Total Price</th>
@@ -104,7 +107,7 @@
               <?php $grand_total += $row['total_price']; ?>
               <?php endwhile; ?>
               <tr>
-                <td colspan="3">
+                <td colspan="6">
                   <a href="index.php" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Continue
                     Shopping</a>
                 </td>
